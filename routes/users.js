@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     const { firstname, secondname, password } = req.body;
 
     if (!firstname || !secondname || !password) {
-      return req.status(404).json({ message: 'you missing required feilds' });
+      return res.status(404).json({ message: 'you missing required feilds' });
     }
     let NewUser = new User(firstname, secondname, password);
     user_lst.push(NewUser);

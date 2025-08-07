@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <script src="./main.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600 cursor-pointer" onclick="goToRegister()">My Blog App</h1>
+  </header>
+
+  <main class="flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded shadow-md w-96">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Register</h2>
+      <input id="firstName" type="text" placeholder="First Name" class="w-full mb-4 px-4 py-2 border rounded"/>
+      <input id="lastName" type="text" placeholder="Last Name" class="w-full mb-4 px-4 py-2 border rounded"/>
+      <input id="password" type="password" placeholder="Password" class="w-full mb-6 px-4 py-2 border rounded"/>
+      <button onclick="registerUser()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+        Register
+      </button>
+    </div>
+  </main>
+</body>
+</html>
