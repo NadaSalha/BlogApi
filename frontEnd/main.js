@@ -29,7 +29,7 @@ function registerUser() {
       const data = JSON.parse(xhr.responseText);
       user_Id = data.user.id;
       localStorage.setItem('user_id', user_Id);
-      window.location.href = './home.html';
+      window.location.href = '/frontEnd/home.html';
     }
   };
 
