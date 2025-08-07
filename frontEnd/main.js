@@ -1,8 +1,6 @@
 let user = null;
 let blogs = [];
- let user_Id =0;
-const getElement = (elem) => document.querySelector(elem);
-
+let user_Id = 0;
 function registerUser() {
   const firstName = document.getElementById('firstName').value.trim();
   const lastName = document.getElementById('lastName').value.trim();
@@ -29,9 +27,8 @@ function registerUser() {
     if (xhr.status === 201) {
       alert('User registered successfully');
       const data = JSON.parse(xhr.responseText);
-       user_Id = data.user.id;
-       localStorage.setItem('user_id',user_Id);
-       alert(xhr.response);
+      user_Id = data.user.id;
+      localStorage.setItem('user_id', user_Id);
       window.location.href = './home.html';
     }
   };
@@ -43,11 +40,9 @@ function goToRegister() {
   window.location.href = './home.html';
 }
 
-
 function showAddBlog() {
   document.getElementById('addBlogSection').classList.remove('hidden');
 }
-
 
 function addBlog() {
   const content = document.getElementById('blogContent').value.trim();
@@ -55,8 +50,8 @@ function addBlog() {
 
   if (!content || !blogTitle) return alert('Please input fields');
 
-  user_Id=localStorage.getItem('user_id');
-  alert( localStorage.getItem('user_id'));
+  user_Id = localStorage.getItem('user_id');
+
   const newBlog = {
     userId: user_Id,
     title: blogTitle,
@@ -107,7 +102,8 @@ function renderUserBlogs() {
         user_blogs.blogs.forEach((blog) => {
           const div = document.createElement('div');
           div.className = 'bg-white p-4 rounded shadow';
-          div.textContent = blog.content;
+          div.textContent =
+            'title : ' + blog.title + ' , content :' + blog.content;
           container.appendChild(div);
         });
       } catch (er) {
@@ -115,7 +111,6 @@ function renderUserBlogs() {
       }
     }
   };
-
 }
 
 function renderAllBlogs() {
@@ -150,4 +145,4 @@ function renderAllBlogs() {
   };
 }
 
-// window.onload = loadUser;
+renderAllBlogs();
