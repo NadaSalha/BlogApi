@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/users', userRouter);
 app.use('/posts', postsRouter);
 
+app.use(express.static(__dirname));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.listen(port, () => {
   console.log(
     `Server is listening on port ${port} . Ready to accept requests! `
